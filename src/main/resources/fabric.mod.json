@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "tinker",
+	"version": "${version}",
+	"name": "tinker",
+	"description": "survival-safe, allowlisted, cosmetic block-state editing",
+	"authors": [
+		"hxrry"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/plugin/tinker",
+		"sources": "https://github.com/hxrry27/tinker-fabric"
+	},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.hxrry.tinker.Tinker"
+		],
+		"client": [
+			"dev.hxrry.tinker.client.TinkerClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

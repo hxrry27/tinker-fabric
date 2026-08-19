@@ -1,0 +1,23 @@
+.gradle/
+build/
+/test/
+.vscode/
+
+gradle/*
+!gradle/wrapper/
+
+# fabric loom dev runs
+run/
+logs/
+
+# ide
+out/
+bin/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+run-client.err.log
+run-client.log

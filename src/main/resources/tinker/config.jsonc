@@ -1,0 +1,161 @@
+// ===============================================
+// ████████╗██╗███╗   ██╗██╗  ██╗███████╗██████╗
+// ╚══██╔══╝██║████╗  ██║██║ ██╔╝██╔════╝██╔══██╗
+//    ██║   ██║██╔██╗ ██║█████╔╝ █████╗  ██████╔╝
+//    ██║   ██║██║╚██╗██║██╔═██╗ ██╔══╝  ██╔══██╗
+//    ██║   ██║██║ ╚████║██║  ██╗███████╗██║  ██║
+//    ╚═╝   ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+// ===============================================
+//
+// tinker changes specifically non functional block states: the cosmetic bits
+// that creative builders love to utilise, but struggle to recreate in survival
+
+// every feature is permission-gated:
+//    tinker.use     - the tinker tool
+//    tinker.reload  - /tinker reload
+//
+// tinker mode is per-player, in memory only, and resets on relog
+//
+// comments are allowed in this file, and nothing ever rewrites it. delete it if
+// you want a fresh copy with the current defaults.
+{
+  // ===============================================
+  //                  MAIN CONFIG
+  // ===============================================
+
+  // require-item true - only the item below tinkers, while tinker mode is on
+  // require-item false (default) - ANY held item tinkers while tinker mode is on
+  // traditional minecraft namespacing accepted, google if unsure
+  "tool": {
+    "require-item": false,
+    "item": "minecraft:golden_axe"
+  },
+
+  "permissions": {
+    "default-level": 2,
+    "singleplayer-owner-always-allowed": true
+  },
+
+  "allowlist": {
+
+    // corner shapes: STRAIGHT / INNER_LEFT / INNER_RIGHT / OUTER_LEFT / OUTER_RIGHT
+    "stairs": {
+      "shape": true
+    },
+
+    "trapdoors": {
+      "open": true
+    },
+
+    "doors": {
+      "open": true,
+      "hinge": true
+    },
+
+    "fence_gates": {
+      "open": true
+    },
+
+    // this covers fences, glass panes, iron bars
+    "connecting": {
+      "north": true,
+      "east": true,
+      "south": true,
+      "west": true,
+      "up": true,
+      "down": true
+    },
+
+    // each side cycles: NONE / LOW / TALL
+    "walls": {
+      "north": true,
+      "east": true,
+      "south": true,
+      "west": true,
+      "up": true
+    },
+
+    // only non redstone blocks, purely cosmetic, for furnaces to look lit etc.
+    "lit_blocks": {
+      "lit": true
+    },
+
+    "barrels": {
+      "open": true
+    },
+
+    // please note, all of these can be switched to true to be enabled, they are
+    // supported but they are NOT ADVISED
+    // you will run into dupes, bugs, weird situations and
+    // other probably unforseen issues
+    // they should be fairly self explanatory
+    "crops": {
+      "age": false
+    },
+    "composters": {
+      "level": false
+    },
+    "cauldrons": {
+      "level": false
+    },
+    "beehives": {
+      "honey_level": false
+    },
+    "candles": {
+      "count": false
+    },
+    "sea_pickles": {
+      "count": false
+    },
+    "snow": {
+      "layers": false
+    },
+    "turtle_eggs": {
+      "count": false
+    },
+    "respawn_anchors": {
+      "charges": false
+    },
+    "pistons": {
+      "extended": false
+    },
+    "redstone": {
+      "powered": false,
+      "power": false,
+      "mode": false,
+      "delay": false
+    }
+  },
+
+  // ===============================================
+  //                    MESSAGES
+  // ===============================================
+
+  // mini message format (named colours, <#rrggbb>, bold/italic/underlined/
+  // strikethrough/obfuscated, reset)
+  //
+  // placeholders include: <block>, <property>, <value>
+  //
+  // selected / cycled / not-editable go to the ACTION BAR, the strip just above the hotbar
+  //
+  // the rest go to player chat, prefixed with `prefix`
+  // =============================================================================
+  "messages": {
+    "prefix": "<gray>[</gray><aqua>Tinker</aqua><gray>]</gray> ",
+
+    // left-click: a property was selected
+    "selected": "<gray><block></gray> <dark_gray>></dark_gray> <aqua><property></aqua> <dark_gray>(</dark_gray><white><value></white><dark_gray>)</dark_gray>",
+
+    // right-click: a property's value was changed
+    "cycled": "<gray><block></gray> <dark_gray>></dark_gray> <aqua><property></aqua><gray>:</gray> <white><value></white>",
+
+    // the block has nothing editable in the current allowlist
+    "not-editable": "<red><block> has nothing to tinker</red>",
+
+
+    "reloaded": "<green>Config reloaded.</green> <gray>All player sessions were reset</gray>",
+    "reload-failed": "<red>Reload failed - check the server console</red>",
+
+    "no-permission": "<red>You don't have permission to do that</red>"
+  }
+}

@@ -1,0 +1,7 @@
+{
+	"key.category.tinker.tinker": "Tinker",
+	"key.tinker.toggle": "Toggle tinker mode",
+
+	"tinker.message.enabled": "Tinker mode: ON",
+	"tinker.message.disabled": "Tinker mode: OFF"
+}
